@@ -1,101 +1,149 @@
 <!DOCTYPE html>
-<html lang="vi">
+<!-- Website template by freewebsitetemplates.com -->
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Trang Chủ - Blakletterpress</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Blakletterpress Website Template</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="logo-left">Blakletterpress</div>
-            <div class="logo-center">BLP</div>
-            <div class="search-right">
-                Your online source of trusted news
-                <div class="search-form">
-                    <input type="text" placeholder="Enter search query">
-                    <button>Search</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="main-content">
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <div class="nav-menu">
-                    <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="news.html">NEWS</a></li>
-                        <li><a href="blog.html">BLOG</a></li>
-                    </ul>
-                </div>
-                
-                <div class="social-box">
-                    <h3>Connect with us:</h3>
-                    <div class="social-icons">
-                        <a href="#" style="color:#00aced;">&#x1F426;</a> <!-- Twitter icon roughly -->
-                        <a href="#" style="color:#3b5998;">&#x1F4F1;</a> <!-- FB icon roughly -->
-                        <a href="#" style="color:#dd4b39;">&#x2709;</a> <!-- G+ icon roughly -->
-                    </div>
-                </div>
-
-                <div class="placeholder-box">
-                    <h3>Placeholder</h3>
-                    <div class="placeholder-item">
-                        <strong>Title Sample One</strong><br>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eleifend ligula vel velit varius.<br>
-                        <a href="#">Read more</a>
-                    </div>
-                    <div class="placeholder-item">
-                        <strong>Title Sample One</strong><br>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eleifend ligula vel velit varius.<br>
-                        <a href="#">Read more</a>
-                    </div>
-                    <div class="placeholder-btn">
-                        <button>View More</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Content Area -->
-            <div class="content-area">
-                <h1 style="font-size: 24px; font-weight: normal; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0;">Chào mừng đến với Blakletterpress</h1>
-                
-                <p>Đây là trang chủ của Blakletterpress - Nguồn tin tức đáng tin cậy của bạn.</p>
-                <p>Từ trang này, bạn có thể điều hướng đến các trang mà chúng ta vừa mới tạo:</p>
-                <ul>
-                    <li><a href="register.html" style="color: green; font-weight: bold; text-decoration: none;">&rarr; Đi tới Trang Đăng ký (register.html)</a></li>
-                    <li><a href="media.html" style="color: green; font-weight: bold; text-decoration: none;">&rarr; Đi tới Trang Đa phương tiện (media.html)</a></li>
-                </ul>
-                <br>
-                <p><i>Lưu ý: Nếu bạn đang làm bài tập và trước đây đã có nội dung cho trang chủ (ở một bài tập trước), bạn có thể copy nội dung cũ đó vào phần `<div class="content-area">` này.</i></p>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-col">
-                <div class="icon-circle"></div>
-                This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.
-            </div>
-            <div class="footer-col">
-                <div class="icon-circle"></div>
-                This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.
-            </div>
-            <div class="footer-col">
-                <div class="icon-circle"></div>
-                This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.
-            </div>
-            <div class="footer-col">
-                <div class="icon-circle"></div>
-                This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.
-            </div>
-        </div>
-        <div class="copyright">
-            © Copyright 2011 Company name all rights reserved
-        </div>
-    </div>
+	<div id="page">
+		<div id="header">
+			<div id="motto">
+				<a href="index.html" class="sitename"><img src="images/blakletterpress.png" height="24" width="142" alt="SiteName"></a>
+				<p>
+					<img src="images/header-text.png" height="14" width="218" alt="Text">
+				</p>
+			</div>
+			<div id="logo">
+				<a href="index.html"><img src="images/logo.png" alt="LOGO"></a>
+			</div>
+			<div id="searchbar">
+				<form action="#" method="post">
+					<input type="text" value="Enter search query" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+					<input type="submit" value="Search" class="btn">
+				</form>
+			</div>
+		</div>
+		<div id="contents">
+			<div id="main">
+				<div id="gallery">
+					<div>
+						<img src="images/team-large.jpg" alt="Img">
+					</div>
+					<ul>
+						<li>
+							<img src="images/smiling.jpg" alt="Img">
+						</li>
+						<li>
+							<img src="images/ecofriends.jpg" alt="Img">
+						</li>
+						<li>
+							<img src="images/team.jpg" alt="Img">
+						</li>
+						<li>
+							<img src="images/smiling.jpg" alt="Img">
+						</li>
+						<li>
+							<img src="images/ecofriends.jpg" alt="Img">
+						</li>
+						<li>
+							<img src="images/team.jpg" alt="Img">
+						</li>
+					</ul>
+				</div>
+				<div class="body">
+					<h1>This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for <em>free</em>.</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula vel velit varius fermentum. Nullam porta hendrerit metus id hendrerit. Maecenas consequat neque sed tellus commodo ultrices et et est. Maecenas non justo vitae dui vulputate rutrum sed a lacus. Pellentesque dapibus, felis eget ornare ultrices, est est imperdiet magna, id ultrices odio leo sed erat. Maecenas nec est egestas ipsum bibendum iaculis. Nulla accumsan posuere nisl. Cras eu consectetur turpis. Etiam condimentum, lorem ac imperdiet ultricies, velit arcu feugiat nunc, vel tristique sapien diam quis velit. Maecenas non metus augue, sit amet tristique libero. In placerat urna quis orci hendrerit pretium. Donec luctus, magna rhoncus pretium tempor, odio orci consequat turpis, id rutrum elit tellus eu odio. Nunc sapien libero, faucibus quis vehicula quis, interdum eu mauris.
+					</p>
+					<p>
+						Cras eu consectetur turpis. Etiam condimentum, lorem ac imperdiet ultricies, velit arcu feugiat nunc, vel tristique sapien diam quis velit. Maecenas non metus augue, sit amet tristique libero. In placerat urna quis orci hendrerit pretium. Donec luctus, magna rhoncus pretium tempor, odio orci consequat turpis, id rutrum elit tellus eu odio. Nunc sapien libero, faucibus quis vehicula quis, interdum eu mauris.
+					</p>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div id="navigation">
+					<div>
+						<ul>
+							<li class="selected">
+								<a href="index.html">Home</a>
+							</li>
+							<li>
+								<a href="about.html">About</a>
+							</li>
+							<li>
+								<a href="news.html">News</a>
+							</li>
+							<li>
+								<a href="blog.html">Blog</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="section">
+					<div id="connect">
+						<h2>Connect with us:</h2>
+						<a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter"></a> <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook"></a> <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus"></a>
+					</div>
+				</div>
+				<div class="section">
+					<div id="posts">
+						<h2>Placeholder</h2>
+						<ul>
+							<li>
+								<h5>Title Sample One</h5>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula vel velit varius
+								</p>
+								<a href="news.html" class="more">Read more</a>
+							</li>
+							<li>
+								<h5>Title Sample One</h5>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula vel velit varius
+								</p>
+								<a href="news.html" class="more">Read more</a>
+							</li>
+						</ul>
+						<a href="news.html" class="btn2">View More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<ul id="featured">
+					<li>
+						<a href="index.html" class="home"></a>
+						<p>
+							This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+						</p>
+					</li>
+					<li>
+						<a href="index.html" class="bell"></a>
+						<p>
+							This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+						</p>
+					</li>
+					<li>
+						<a href="index.html" class="globe"></a>
+						<p>
+							This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+						</p>
+					</li>
+					<li>
+						<a href="index.html" class="pencil"></a>
+						<p>
+							This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+						</p>
+					</li>
+				</ul>
+				<p id="footnote">
+					© Copyright © 2011.Company name all rights reserved
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
