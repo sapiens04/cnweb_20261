@@ -1,0 +1,971 @@
+/* ==========================================================================
+   BLAKLETTERPRESS — PREMIUM ARTISAN STUDIO STYLESHEET
+   Responsive Design System for trang-goc.html
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GOOGLE FONTS IMPORT
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. DESIGN TOKENS & CSS VARIABLES
+   -------------------------------------------------------------------------- */
+:root {
+	/* Warm Artisan Letterpress Palette */
+	--color-bg: #FAF7F2;
+	--color-surface: #FFFFFF;
+	--color-surface-card: #FDFBF8;
+	--color-surface-hover: #F8F3EA;
+
+	/* Ink & Accent Colors */
+	--color-ink-primary: #1C1917;
+	--color-ink-secondary: #44403C;
+	--color-ink-muted: #78716C;
+	--color-ink-faint: #A8A29E;
+
+	/* Brand Craft Accents */
+	--color-craft-rust: #8A3324;
+	--color-craft-rust-dark: #6C2417;
+	--color-craft-rust-light: #A84433;
+	--color-craft-gold: #C49746;
+	--color-craft-gold-light: #E0B86C;
+	--color-craft-gold-faint: rgba(196, 151, 70, 0.14);
+
+	/* Dark Footer */
+	--color-footer-bg: #141110;
+	--color-footer-text: #D6CEBE;
+	--color-footer-muted: #8E877D;
+
+	/* Borders & Shadows */
+	--border-light: 1px solid rgba(196, 151, 70, 0.22);
+	--border-subtle: 1px solid rgba(0, 0, 0, 0.06);
+	--shadow-sm: 0 2px 8px rgba(44, 24, 16, 0.04);
+	--shadow-md: 0 8px 24px rgba(44, 24, 16, 0.06);
+	--shadow-lg: 0 16px 36px rgba(44, 24, 16, 0.09);
+	--shadow-hover: 0 20px 40px rgba(138, 51, 36, 0.12);
+
+	/* Typography */
+	--font-display: 'Cinzel', serif;
+	--font-serif: 'Playfair Display', Georgia, serif;
+	--font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+	/* Layout & Spacing */
+	--header-height: 80px;
+	--container-max-width: 1220px;
+	--radius-sm: 8px;
+	--radius-md: 14px;
+	--radius-lg: 20px;
+	--radius-full: 9999px;
+
+	/* Transitions */
+	--transition-snappy: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-bounce: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------
+   3. BASE & RESET
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 16px;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font-family: var(--font-body);
+	background-color: var(--color-bg);
+	background-image: 
+		radial-gradient(circle at 10% 20%, rgba(196, 151, 70, 0.05) 0%, transparent 40%),
+		radial-gradient(circle at 90% 80%, rgba(138, 51, 36, 0.04) 0%, transparent 40%);
+	color: var(--color-ink-secondary);
+	line-height: 1.7;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+article[id],
+section[id] {
+	scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: var(--color-craft-rust);
+	text-decoration: none;
+	transition: var(--transition-snappy);
+}
+
+a:hover {
+	color: var(--color-craft-rust-dark);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #F0ECE4;
+}
+::-webkit-scrollbar-thumb {
+	background: #C49746;
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #8A3324;
+}
+
+/* --------------------------------------------------------------------------
+   4. SITE HEADER & NAVIGATION
+   -------------------------------------------------------------------------- */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background: rgba(250, 247, 242, 0.95);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border-bottom: 1px solid rgba(196, 151, 70, 0.25);
+	box-shadow: 0 4px 20px rgba(44, 24, 16, 0.04);
+	padding: 0.85rem 2.5rem;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-template-areas: 
+		"brand spacer nav"
+		"tagline spacer nav";
+	row-gap: 2px;
+	align-items: center;
+	transition: var(--transition-snappy);
+}
+
+/* Brand Name */
+.site-header .site-name {
+	grid-area: brand;
+	font-family: var(--font-display);
+	font-size: 1.65rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	color: var(--color-ink-primary);
+	text-transform: uppercase;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	line-height: 1.1;
+	background: linear-gradient(135deg, #1C1917 20%, #8A3324 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: var(--transition-bounce);
+}
+
+.site-header .site-name::before {
+	content: "✦";
+	display: inline-block;
+	font-size: 1.1rem;
+	color: var(--color-craft-gold);
+	-webkit-text-fill-color: var(--color-craft-gold);
+	transform: translateY(-1px);
+	transition: transform 0.4s ease;
+}
+
+.site-header .site-name:hover {
+	transform: translateY(-1px);
+}
+
+.site-header .site-name:hover::before {
+	transform: rotate(90deg) scale(1.15);
+}
+
+/* Tagline */
+.site-header .tagline {
+	grid-area: tagline;
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--color-craft-gold);
+	margin: 0;
+	line-height: 1.2;
+}
+
+/* Main Navigation */
+.main-nav {
+	grid-area: nav;
+	margin-left: auto;
+}
+
+.main-nav ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0;
+}
+
+.main-nav li a {
+	display: block;
+	padding: 0.55rem 1.15rem;
+	font-size: 0.92rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: var(--color-ink-secondary);
+	border-radius: var(--radius-full);
+	position: relative;
+	transition: var(--transition-snappy);
+}
+
+.main-nav li a:hover {
+	color: var(--color-craft-rust);
+	background: rgba(138, 51, 36, 0.08);
+	transform: translateY(-1px);
+}
+
+.main-nav li a:active {
+	transform: scale(0.97);
+}
+
+/* --------------------------------------------------------------------------
+   5. PAGE LAYOUT CONTAINER
+   -------------------------------------------------------------------------- */
+.layout {
+	max-width: var(--container-max-width);
+	width: 100%;
+	margin: 2.5rem auto 4.5rem;
+	padding: 0 1.5rem;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 330px;
+	gap: 2.5rem;
+	align-items: start;
+	flex: 1;
+}
+
+main {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. ARTICLE: ABOUT US (VỀ BLAKLETTERPRESS)
+   -------------------------------------------------------------------------- */
+#gioi-thieu {
+	background: var(--color-surface);
+	border-radius: var(--radius-lg);
+	padding: 2.75rem 2.5rem;
+	border: var(--border-light);
+	box-shadow: var(--shadow-md);
+	position: relative;
+	overflow: hidden;
+}
+
+#gioi-thieu::after {
+	content: "";
+	position: absolute;
+	top: -60px;
+	right: -60px;
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(196, 151, 70, 0.15) 0%, transparent 70%);
+	pointer-events: none;
+}
+
+#gioi-thieu h1 {
+	font-family: var(--font-serif);
+	font-size: clamp(2rem, 3.2vw, 2.75rem);
+	font-weight: 800;
+	line-height: 1.25;
+	color: var(--color-ink-primary);
+	margin-bottom: 1.75rem;
+	position: relative;
+	letter-spacing: -0.01em;
+}
+
+#gioi-thieu h1::after {
+	content: "";
+	display: block;
+	width: 70px;
+	height: 3px;
+	margin-top: 0.75rem;
+	background: linear-gradient(90deg, var(--color-craft-rust) 0%, var(--color-craft-gold) 100%);
+	border-radius: var(--radius-full);
+}
+
+#gioi-thieu figure {
+	margin: 0 0 2rem 0;
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	box-shadow: var(--shadow-lg);
+	border: 1px solid rgba(196, 151, 70, 0.2);
+	background: #FAF7F2;
+	position: relative;
+}
+
+#gioi-thieu figure img {
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
+	max-height: 480px;
+	transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#gioi-thieu figure:hover img {
+	transform: scale(1.025);
+}
+
+#gioi-thieu figcaption {
+	padding: 0.9rem 1.25rem;
+	font-size: 0.88rem;
+	font-style: italic;
+	color: var(--color-ink-muted);
+	background: linear-gradient(180deg, #FDFBF8 0%, #F5EFE6 100%);
+	text-align: center;
+	border-top: 1px solid rgba(196, 151, 70, 0.15);
+	letter-spacing: 0.02em;
+}
+
+#gioi-thieu figcaption::before {
+	content: "— ";
+	color: var(--color-craft-gold);
+}
+
+#gioi-thieu p {
+	font-size: 1.05rem;
+	line-height: 1.85;
+	color: var(--color-ink-secondary);
+	margin-bottom: 1.25rem;
+}
+
+#gioi-thieu p:first-of-type {
+	font-size: 1.15rem;
+	line-height: 1.85;
+	color: var(--color-ink-primary);
+}
+
+#gioi-thieu p:first-of-type::first-letter {
+	font-family: var(--font-serif);
+	float: left;
+	font-size: 3.4rem;
+	line-height: 0.85;
+	padding: 0.1rem 0.35rem 0 0;
+	color: var(--color-craft-rust);
+	font-weight: 700;
+}
+
+#gioi-thieu strong {
+	color: var(--color-craft-rust);
+	font-weight: 600;
+	background: linear-gradient(120deg, rgba(196, 151, 70, 0.16) 0%, rgba(138, 51, 36, 0.12) 100%);
+	padding: 0.1rem 0.45rem;
+	border-radius: 4px;
+	border-bottom: 1px solid rgba(138, 51, 36, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION HEADINGS (COMMON)
+   -------------------------------------------------------------------------- */
+section h2 {
+	font-family: var(--font-serif);
+	font-size: 1.85rem;
+	font-weight: 700;
+	color: var(--color-ink-primary);
+	margin-bottom: 1.5rem;
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	letter-spacing: -0.01em;
+}
+
+section h2::before {
+	content: "";
+	display: inline-block;
+	width: 6px;
+	height: 24px;
+	background: linear-gradient(180deg, var(--color-craft-rust) 0%, var(--color-craft-gold) 100%);
+	border-radius: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION: CORE VALUES (GIÁ TRỊ CỐT LÕI)
+   -------------------------------------------------------------------------- */
+#gia-tri {
+	background: var(--color-surface);
+	border-radius: var(--radius-lg);
+	padding: 2.75rem 2.5rem;
+	border: var(--border-light);
+	box-shadow: var(--shadow-md);
+}
+
+.value-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+	counter-reset: value-counter;
+	margin-top: 1.5rem;
+}
+
+.value-card {
+	counter-increment: value-counter;
+	background: linear-gradient(165deg, #FFFFFF 0%, #FDFBF7 100%);
+	border: 1px solid rgba(196, 151, 70, 0.22);
+	border-radius: var(--radius-md);
+	padding: 2rem 1.6rem;
+	box-shadow: var(--shadow-sm);
+	transition: var(--transition-bounce);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.value-card::before {
+	content: "VAL · 0" counter(value-counter);
+	font-family: var(--font-display);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	color: var(--color-craft-gold);
+	background: var(--color-craft-gold-faint);
+	padding: 0.25rem 0.7rem;
+	border-radius: var(--radius-full);
+	align-self: flex-start;
+	margin-bottom: 1.25rem;
+}
+
+.value-card h3 {
+	font-family: var(--font-serif);
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: var(--color-ink-primary);
+	margin-bottom: 0.65rem;
+	letter-spacing: -0.01em;
+}
+
+.value-card p {
+	font-size: 0.95rem;
+	color: var(--color-ink-muted);
+	line-height: 1.65;
+	margin: 0;
+}
+
+.value-card:hover {
+	transform: translateY(-8px);
+	border-color: var(--color-craft-rust);
+	box-shadow: var(--shadow-hover);
+	background: #FFFFFF;
+}
+
+.value-card:hover h3 {
+	color: var(--color-craft-rust);
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION: TEAM (ĐỘI NGŨ)
+   -------------------------------------------------------------------------- */
+#doi-ngu {
+	background: var(--color-surface);
+	border-radius: var(--radius-lg);
+	padding: 2.75rem 2.5rem;
+	border: var(--border-light);
+	box-shadow: var(--shadow-md);
+}
+
+.team-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.75rem;
+	margin-top: 1.5rem;
+}
+
+.member {
+	background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF8 100%);
+	border: 1px solid rgba(196, 151, 70, 0.2);
+	border-radius: var(--radius-md);
+	padding: 2.25rem 1.25rem 2rem;
+	text-align: center;
+	box-shadow: var(--shadow-sm);
+	transition: var(--transition-bounce);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.member img {
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 1.25rem;
+	border: 3px solid #FAF7F2;
+	outline: 2px solid var(--color-craft-gold);
+	box-shadow: 0 8px 18px rgba(44, 24, 16, 0.12);
+	transition: var(--transition-bounce);
+}
+
+.member h3 {
+	font-family: var(--font-serif);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-ink-primary);
+	margin-bottom: 0.35rem;
+}
+
+.member p {
+	font-size: 0.88rem;
+	font-weight: 500;
+	color: var(--color-craft-rust);
+	line-height: 1.5;
+	margin: 0;
+}
+
+.member:hover {
+	transform: translateY(-8px);
+	border-color: var(--color-craft-gold);
+	box-shadow: var(--shadow-lg);
+}
+
+.member:hover img {
+	transform: scale(1.1) rotate(2deg);
+	outline-color: var(--color-craft-rust);
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION: CONTACT FORM (LIÊN HỆ)
+   -------------------------------------------------------------------------- */
+#lien-he {
+	background: linear-gradient(145deg, #FFFFFF 0%, #FAF5ED 100%);
+	border-radius: var(--radius-lg);
+	padding: 2.75rem 2.5rem;
+	border: 1px solid rgba(196, 151, 70, 0.28);
+	box-shadow: var(--shadow-md);
+	position: relative;
+}
+
+.contact-form {
+	max-width: 650px;
+	margin-top: 1.5rem;
+}
+
+.contact-form p {
+	margin-bottom: 1.4rem;
+}
+
+.contact-form label {
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-ink-primary);
+	display: inline-block;
+	margin-bottom: 0.45rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+	width: 100%;
+	padding: 0.9rem 1.2rem;
+	font-family: var(--font-body);
+	font-size: 0.98rem;
+	color: var(--color-ink-primary);
+	background: #FFFFFF;
+	border: 1.5px solid rgba(196, 151, 70, 0.35);
+	border-radius: var(--radius-sm);
+	outline: none;
+	transition: var(--transition-snappy);
+	box-shadow: inset 0 2px 4px rgba(44, 24, 16, 0.02);
+}
+
+.contact-form textarea {
+	resize: vertical;
+	min-height: 120px;
+	line-height: 1.6;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+	border-color: var(--color-craft-rust);
+	box-shadow: 0 0 0 4px rgba(138, 51, 36, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.04);
+	background: #FFFFFF;
+}
+
+.contact-form button[type="submit"] {
+	background: linear-gradient(135deg, var(--color-craft-rust) 0%, var(--color-craft-rust-dark) 100%);
+	color: #FFFFFF;
+	font-family: var(--font-display);
+	font-size: 0.92rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	padding: 1rem 2.5rem;
+	border: none;
+	border-radius: var(--radius-full);
+	cursor: pointer;
+	box-shadow: 0 8px 24px rgba(138, 51, 36, 0.32);
+	transition: var(--transition-snappy);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.contact-form button[type="submit"]:hover {
+	background: linear-gradient(135deg, var(--color-craft-rust-light) 0%, var(--color-craft-rust) 100%);
+	transform: translateY(-3px);
+	box-shadow: 0 12px 28px rgba(138, 51, 36, 0.42);
+}
+
+.contact-form button[type="submit"]:active {
+	transform: translateY(0);
+	box-shadow: 0 4px 12px rgba(138, 51, 36, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   11. SIDEBAR (BÀI VIẾT GẦN ĐÂY & KẾT NỐI)
+   -------------------------------------------------------------------------- */
+.sidebar {
+	background: var(--color-surface);
+	border-radius: var(--radius-lg);
+	padding: 2.25rem 2rem;
+	border: var(--border-light);
+	box-shadow: var(--shadow-md);
+	position: sticky;
+	top: calc(var(--header-height) + 24px);
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.sidebar h2 {
+	font-family: var(--font-serif);
+	font-size: 1.45rem;
+	font-weight: 700;
+	color: var(--color-ink-primary);
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.85rem;
+	border-bottom: 2px solid rgba(196, 151, 70, 0.2);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.sidebar h2::before {
+	content: "✦";
+	color: var(--color-craft-gold);
+	font-size: 0.95rem;
+	width: auto;
+	height: auto;
+	background: transparent;
+}
+
+.sidebar .recent {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar .recent li {
+	padding: 0.9rem 0;
+	border-bottom: 1px dashed rgba(196, 151, 70, 0.22);
+	position: relative;
+	padding-left: 1.4rem;
+}
+
+.sidebar .recent li:last-child {
+	border-bottom: none;
+}
+
+.sidebar .recent li::before {
+	content: "→";
+	position: absolute;
+	left: 0;
+	top: 0.9rem;
+	color: var(--color-craft-gold);
+	font-weight: 700;
+	transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sidebar .recent li a {
+	color: var(--color-ink-secondary);
+	font-size: 0.95rem;
+	font-weight: 500;
+	line-height: 1.5;
+	display: inline-block;
+}
+
+.sidebar .recent li:hover::before {
+	transform: translateX(4px);
+	color: var(--color-craft-rust);
+}
+
+.sidebar .recent li:hover a {
+	color: var(--color-craft-rust);
+	transform: translateX(3px);
+}
+
+.sidebar p {
+	font-size: 0.92rem;
+	color: var(--color-ink-muted);
+	padding-top: 1.25rem;
+	border-top: 1px solid rgba(196, 151, 70, 0.2);
+	line-height: 1.6;
+}
+
+.sidebar p a[href*="facebook"] {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	font-weight: 700;
+	color: #1877F2;
+	background: rgba(24, 119, 242, 0.08);
+	padding: 0.45rem 1rem;
+	border-radius: var(--radius-full);
+	margin-top: 0.5rem;
+	border: 1px solid rgba(24, 119, 242, 0.2);
+	transition: var(--transition-snappy);
+}
+
+.sidebar p a[href*="facebook"]::before {
+	content: "f";
+	font-family: sans-serif;
+	font-weight: 900;
+	background: #1877F2;
+	color: white;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+}
+
+.sidebar p a[href*="facebook"]:hover {
+	background: #1877F2;
+	color: #FFFFFF;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(24, 119, 242, 0.3);
+}
+
+.sidebar p a[href*="facebook"]:hover::before {
+	background: #FFFFFF;
+	color: #1877F2;
+}
+
+/* --------------------------------------------------------------------------
+   12. SITE FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+	background: var(--color-footer-bg);
+	color: var(--color-footer-text);
+	margin-top: auto;
+	border-top: 4px solid var(--color-craft-gold);
+	padding: 4.5rem 1.5rem 2.5rem;
+	position: relative;
+}
+
+.site-footer::before {
+	content: "";
+	position: absolute;
+	top: -4px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 140px;
+	height: 4px;
+	background: var(--color-craft-rust);
+}
+
+.footer-cols {
+	max-width: var(--container-max-width);
+	margin: 0 auto;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2.75rem 2rem;
+	padding: 0;
+}
+
+.footer-cols li {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-cols h3 {
+	font-family: var(--font-display);
+	font-size: 1.05rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--color-craft-gold-light);
+	margin-bottom: 1.1rem;
+	position: relative;
+	padding-bottom: 0.6rem;
+}
+
+.footer-cols h3::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 32px;
+	height: 2px;
+	background: rgba(224, 184, 108, 0.4);
+}
+
+.footer-cols p {
+	font-size: 0.92rem;
+	color: var(--color-footer-muted);
+	line-height: 1.7;
+	margin: 0;
+}
+
+.copyright {
+	max-width: var(--container-max-width);
+	margin: 3.5rem auto 0;
+	padding-top: 2rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	text-align: center;
+	color: var(--color-ink-muted);
+	font-size: 0.85rem;
+}
+
+.copyright small {
+	font-size: 0.85rem;
+	letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVE MEDIA QUERIES
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Smaller Desktops */
+@media (max-width: 960px) {
+	.layout {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		margin: 2rem auto 3rem;
+		padding: 0 1.25rem;
+	}
+
+	.sidebar {
+		position: static;
+		order: 2;
+	}
+
+	main {
+		order: 1;
+	}
+
+	.footer-cols {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Tablets / Mobile Landscape */
+@media (max-width: 768px) {
+	.site-header {
+		padding: 1rem 1.25rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.5rem;
+	}
+
+	.site-header .site-name {
+		font-size: 1.45rem;
+	}
+
+	.site-header .tagline {
+		margin-top: 0.1rem;
+	}
+
+	.main-nav {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.main-nav ul {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.25rem;
+	}
+
+	.main-nav li a {
+		padding: 0.45rem 0.85rem;
+		font-size: 0.88rem;
+	}
+
+	#gioi-thieu,
+	#gia-tri,
+	#doi-ngu,
+	#lien-he {
+		padding: 2rem 1.5rem;
+	}
+
+	#gioi-thieu h1 {
+		font-size: 1.95rem;
+	}
+
+	.value-list,
+	.team-list {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+	:root {
+		--header-height: 130px;
+	}
+
+	.layout {
+		padding: 0 0.85rem;
+		margin: 1.25rem auto 2.5rem;
+	}
+
+	#gioi-thieu,
+	#gia-tri,
+	#doi-ngu,
+	#lien-he,
+	.sidebar {
+		padding: 1.5rem 1.1rem;
+		border-radius: var(--radius-md);
+	}
+
+	#gioi-thieu h1 {
+		font-size: 1.65rem;
+	}
+
+	.footer-cols {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.contact-form button[type="submit"] {
+		width: 100%;
+	}
+}
